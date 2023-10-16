@@ -40,6 +40,14 @@ interface CardImage {
   cardId: number;
 }
 
+interface CardImageAttributation {
+  id: number;
+  artist: string;
+  artist_url: string;
+  art_set: string;
+  art_set_url: string;
+}
+
 /**
  * Tarot Deck
  */
@@ -1449,11 +1457,12 @@ function newDeck(): Deck {
   return deck;
 }
 
-
 function getCardByID(id: number): Card {
   // check bounding ranges of number
   return deck.cards[id];
 }
+
+
 
 
 export { newDeck, getCardByID, Card, Deck, CardImage }

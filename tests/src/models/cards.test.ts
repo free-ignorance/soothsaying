@@ -48,6 +48,11 @@ describe('/models', () => {
         expect(card).toBeDefined();
         expect(card).toEqual(deck.cards[0]);
       });
+      it('should get the last card', () => {
+        const card = getCardByID(77);
+        expect(card).toBeDefined();
+        expect(card).toEqual(deck.cards[77]);
+      });
     });
   });
 });

@@ -11,14 +11,10 @@ class HealthCheckController extends DefaultController {
     this.router.get(this.path, this.getHealthCheck);
   }
 
-
-
   private getHealthCheck = (
     request: express.Request,
     response: express.Response
   ) => {
-    // log request 
-    this.logRequest(request, response, () => {});
     const checkResponse = this.getDefaultResponse();
     const healthCheck = getHealthCheck();
     checkResponse.data = {

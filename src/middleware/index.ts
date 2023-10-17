@@ -1,7 +1,5 @@
-import { corsMiddleware } from "./cors";
-
-
+import * as cors from "./cors";
 
 export {
-  corsMiddleware,
+  cors,
 };

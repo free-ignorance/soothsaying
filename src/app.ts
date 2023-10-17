@@ -6,7 +6,7 @@ import { logger } from "./utils/logger";
 import { DefaultController } from "./controllers";
 import { corsMiddleware } from "./middleware";
 import { HealthCheckController } from "./controllers/health";
-import { CardController } from "./controllers/card";
+import { CardController } from "./controllers/cards";
 
 const PORT = process.env.PORT || 3000;
 

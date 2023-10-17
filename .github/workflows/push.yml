@@ -1,0 +1,37 @@
+name: Generic Node.js CI - Tests and Lint Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  linter:
+    name: CI Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking Out Commits Securely . . .
+        uses: actions/checkout@v2
+      - name: Setup Node 16 Environment . . .
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Dependencies . . .
+        working-directory: .
+        run: npm ci
+      - name: Run The Linter . . .
+        run: npm run test:lint
+  tests:
+    name: CI Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking Out Commits Securely . . .
+        uses: actions/checkout@v2
+      - name: Setup Node 16 Environment . . .
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Dependencies . . .
+        working-directory: .
+        run: npm ci
+      - name: Run The Tests . . .
+        run: npm run test

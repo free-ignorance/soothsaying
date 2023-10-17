@@ -1,6 +1,7 @@
 import * as express from "express";
+
 import { DefaultController } from "./";
-import { getHealthCheck } from "../models";
+import { health } from "../models";
 
 class HealthCheckController extends DefaultController {
   constructor() {
@@ -11,16 +12,12 @@ class HealthCheckController extends DefaultController {
     this.router.get(this.path, this.getHealthCheck);
   }
 
-
-
   private getHealthCheck = (
     request: express.Request,
     response: express.Response
   ) => {
-    // log request 
-    this.logRequest(request, response, () => {});
     const checkResponse = this.getDefaultResponse();
-    const healthCheck = getHealthCheck();
+    const healthCheck = health.getHealthCheck();
     checkResponse.data = {
         ...healthCheck,
     };

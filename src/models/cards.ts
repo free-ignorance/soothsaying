@@ -1462,7 +1462,65 @@ function getCardByID(id: number): Card {
   return deck.cards[id];
 }
 
+function shuffleDeck(deck: Deck): Deck {
+  const leftSide: Card[] = deck.cards.slice(0,Math.ceil(deck.cards.length / 2));
+  const rightSide: Card[] = deck.cards.slice(Math.ceil(deck.cards.length / 2), deck.cards.length);
 
+  // rightSide has all cards "orientation" set to opposite of current value
+  rightSide.forEach((card:Card) => {
+    card.orientation = !card.orientation;
+  });
 
+  // shuffle rightSide and leftSide alternating cards into new deck
+  const newDeck:Deck = {
+    cards: []
+  };
 
-export { newDeck, getCardByID, Card, Deck, CardImage }
+  for (let i = 0; i < 78; i++) {
+    if(leftSide.length > 1) {
+      newDeck.cards.push(leftSide.pop()!);
+    }
+    if(rightSide.length > 1) {
+      newDeck.cards.push(rightSide.pop()!);
+    }
+  }
+
+  return newDeck;
+}
+
+// using recursive function to shuffle deck
+// using the shuffleDeck function multiple times
+// to ensure a good shuffle
+function shuffle(deck: Deck, times: number): Deck {
+  if(times === 0) {
+    return deck;
+  }
+  return shuffle(shuffleDeck(deck), times - 1);
+}
+
+function goodShuffle(deck: Deck): Deck {
+  return shuffle(deck, 13);
+}
+
+function newShuffledDeck(): Deck {
+  return goodShuffle(newDeck());
+}
+
+function drawTop(deck: Deck): Card {
+  return deck.cards.pop()!;
+}
+
+function drawThree(deck: Deck): Card[] {
+  const card_one: Card = deck.cards.pop()!;
+  const card_two: Card = deck.cards.pop()!;
+  const card_three: Card = deck.cards.pop()!;
+
+  return [card_one, card_two, card_three];
+}
+
+function newDeckDrawThree(): Card[] {
+  const deck: Deck = newShuffledDeck();
+  return drawThree(deck);
+}
+
+export { newDeck, newDeckDrawThree, getCardByID, Card, Deck, CardImage }

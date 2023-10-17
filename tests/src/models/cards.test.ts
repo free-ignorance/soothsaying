@@ -1,6 +1,4 @@
-import {
-  newDeck, getCardByID
-} from '../../../src/models/cards';
+import { newDeck, newDeckDrawThree, getCardByID, Card, Deck, CardImage } from '../../../src/models/cards';
 
 describe('/models', () => {
   describe('/cards.ts', () => {
@@ -52,6 +50,21 @@ describe('/models', () => {
         const card = getCardByID(77);
         expect(card).toBeDefined();
         expect(card).toEqual(deck.cards[77]);
+      });
+    });
+    describe('newDeckDrawThree', () => {
+      let deck = newDeck();
+      beforeEach(() => {
+        let deck = newDeck();
+      });
+      it('should return an Array with 3 Card Type Objects', () => {
+        const cards = newDeckDrawThree();
+        expect(cards).toBeDefined();
+        expect(cards).toBeInstanceOf(Array);
+        expect(cards.length).toEqual(3);
+        expect(cards[0]).toBeInstanceOf(deck.cards[0].constructor);
+        expect(cards[1]).toBeInstanceOf(deck.cards[0].constructor);
+        expect(cards[2]).toBeInstanceOf(deck.cards[0].constructor);
       });
     });
   });

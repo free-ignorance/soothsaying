@@ -65,8 +65,11 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `Very interesting, <@${request.query.user_name}>. Let's see what the cards have to say... :crystal_ball:`
+            text: `Very interesting, <@${request.query.user_id}>. Let's see what the cards have to say... :crystal_ball:`
           }
+        },
+        {
+          type: "divider"
         },
         {
           type: "section",
@@ -74,35 +77,50 @@ class CardController extends DefaultController {
             type: "mrkdwn",
             text: `Your Past card is *${cards[0].name}*, \n ${cards[0].description}`
           },
-          accessory: {
-            type: "image",
-            image_url: `${cards[0].cardImages[0].url.small}`,
-            alt_text: `${cards[0].cardImages[0].alt}`
-          }
+        },
+        {
+          type: "image",
+          title: {
+            type: "plain_text",
+            text: `${cards[0].name}`
+          },
+          block_id: "past_card_image",
+          image_url: `${cards[0].cardImages[0].url.small}`,
+          alt_text: `${cards[0].cardImages[0].alt}`
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
             text: `Your Present card is *${cards[1].name}* \n ${cards[1].description}`
-          },
-          accessory: {
-            type: "image",
-            image_url: `${cards[1].cardImages[0].url.small}`,
-            alt_text: `${cards[1].cardImages[0].alt}`
           }
+        },
+        {
+          type: "image",
+          title: {
+            type: "plain_text",
+            text: `${cards[1].name}`
+          },
+          block_id: "present_card_image",
+          image_url: `${cards[1].cardImages[0].url.small}`,
+          alt_text: `${cards[1].cardImages[0].alt}`
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
             text: `Your Future card is *${cards[2].name}* \n ${cards[2].description}`
-          },
-          accessory: {
-            type: "image",
-            image_url: `${cards[2].cardImages[0].url.small}`,
-            alt_text: `${cards[2].cardImages[0].alt}`
           }
+        },
+        {
+          type: "image",
+          title: {
+            type: "plain_text",
+            text: `${cards[2].name}`
+          },
+          block_id: "future_card_image",
+          image_url: `${cards[2].cardImages[0].url.small}`,
+          alt_text: `${cards[2].cardImages[0].alt}`
         }
       ]
     };

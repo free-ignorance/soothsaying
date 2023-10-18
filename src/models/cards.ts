@@ -1894,10 +1894,16 @@ function shuffleDeck(deck: Deck): Deck {
   };
 
   for (let i = 0; i < 78; i++) {
+    const variance: number = Math.floor(Math.random() * 10) + 1;
     if(leftSide.length > 1) {
       newDeck.cards.push(leftSide.pop()!);
     }
     if(rightSide.length > 1) {
+      newDeck.cards.push(rightSide.pop()!);
+    }
+    if(variance % 2 === 0 && leftSide.length > 1) {
+      newDeck.cards.push(leftSide.pop()!);
+    } else if(rightSide.length > 1) {
       newDeck.cards.push(rightSide.pop()!);
     }
   }
@@ -1916,7 +1922,8 @@ function shuffle(deck: Deck, times: number): Deck {
 }
 
 function goodShuffle(deck: Deck): Deck {
-  return shuffle(deck, 13);
+  const times: number = Math.floor(Math.random() * 10) + 1;
+  return shuffle(deck, times);
 }
 
 function newShuffledDeck(): Deck {

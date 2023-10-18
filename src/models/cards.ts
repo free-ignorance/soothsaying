@@ -16,12 +16,16 @@ interface Card {
   //     positive: string[];
   //     negative: string[];
   //   };
-  //   negative_past: string;
-  //   negative_present: string;
-  //   negative_future: string;
-  //   positive_past: string;
-  //   positive_present: string;
-  //   positive_future: string;
+  //   negative: {
+  //     past: string;
+  //     present: string;
+  //     future: string;
+  //   };
+  //   positive: {
+  //     past: string;
+  //     present: string;
+  //     future: string;
+  //   };
   // };
   // element: string; // fire, water, air, earth
   // numerology: string; 
@@ -30,13 +34,19 @@ interface Card {
   // timing: string;
   cardImages: CardImage[];
 }
-
+// the urls are wikicommons and can be seen here: 
+// https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot
 interface CardImage {
   id: number;
   art_set: string;
   label: string;
+  url: {
+    tiny: string;
+    small: string;
+    mid: string;
+    large: string;
+  };
   alt: string;
-  url: string;
   cardId: number;
 }
 
@@ -74,13 +84,34 @@ const deck: Deck = {
       description: "The Fool is the spirit in search of experience. He represents the mystical cleverness bereft of reason within us, the childlike ability to tune into the inner workings of the world. The sun shining behind him represents the divine nature of the Fool's wisdom and exuberance, holy madness or 'crazy wisdom'. On his back are all the possessions he might need. In his hand there is a flower, showing his appreciation of beauty. He is frequently accompanied by a dog, sometimes seen as his animal desires, sometimes as the call of the real world, nipping at his heels and distracting him. He is seemingly unconcerned that he is standing on a precipice, apparently about to step off.",
       type: "major",
       orientation: true,
+      // meanings: {
+      //   negative: {
+      //     past: "You may have made some impulsive or reckless decisions in the past.",
+      //     present: "You may be feeling lost or directionless at the moment.",
+      //     future: "If you are not careful, you may repeat past mistakes."
+      //           },
+      //   positive: {
+      //     past: "You have lived a life full of adventure and excitement.",
+      //     present: "You are open to new experiences and new beginnings.",
+      //     future: "You have a bright future ahead of you if you trust your intuition and follow your heart."
+      //   },
+      //   keywords: {
+      //     positive: ["beginnings", "spontaneity", "originality", "innocence", "freedom", "faith", "inexperience"],
+      //     negative: ["naivety", "recklessness", "risk-taking", "foolishness", "immaturity", "inexperience"]
+      //   }
+      // },
       cardImages: [
         {
           id: 0,
           art_set: "rider-waite-smith",
           label: "The Fool",
           alt: "A rendering of the tarot card The Fool depicting a jester",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/RWS_Tarot_00_Fool.jpg/343px-RWS_Tarot_00_Fool.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/RWS_Tarot_00_Fool.jpg/512px-RWS_Tarot_00_Fool.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/RWS_Tarot_00_Fool.jpg/256px-RWS_Tarot_00_Fool.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/RWS_Tarot_00_Fool.jpg/128px-RWS_Tarot_00_Fool.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/RWS_Tarot_00_Fool.jpg/64px-RWS_Tarot_00_Fool.jpg"
+          },
           cardId: 0
         }
       ]
@@ -97,7 +128,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Magician",
           alt: "A rendering of the tarot card The Magician depicting a magician",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/RWS_Tarot_01_Magician.jpg/341px-RWS_Tarot_01_Magician.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/RWS_Tarot_01_Magician.jpg/512px-RWS_Tarot_01_Magician.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/RWS_Tarot_01_Magician.jpg/256px-RWS_Tarot_01_Magician.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/RWS_Tarot_01_Magician.jpg/128px-RWS_Tarot_01_Magician.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/RWS_Tarot_01_Magician.jpg/64px-RWS_Tarot_01_Magician.jpg"
+          },
           cardId: 1
         }
       ]
@@ -114,7 +150,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The High Priestess",
           alt: "A rendering of the tarot card The High Priestess depicting a priestess",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/343px-RWS_Tarot_02_High_Priestess.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/500px-RWS_Tarot_02_High_Priestess.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/256px-RWS_Tarot_02_High_Priestess.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/100px-RWS_Tarot_02_High_Priestess.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/64px-RWS_Tarot_02_High_Priestess.jpg"
+          },
           cardId: 2
         }
       ]
@@ -131,7 +172,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Empress",
           alt: "A rendering of the tarot card The Empress depicting a mother",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/343px-RWS_Tarot_03_Empress.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/512px-RWS_Tarot_03_Empress.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/256px-RWS_Tarot_03_Empress.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/128px-RWS_Tarot_03_Empress.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/64px-RWS_Tarot_03_Empress.jpg"
+          },
           cardId: 3
         }
       ]
@@ -148,7 +194,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Emperor",
           alt: "A rendering of the tarot card The Emperor depicting a king",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/RWS_Tarot_04_Emperor.jpg/343px-RWS_Tarot_04_Emperor.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/RWS_Tarot_04_Emperor.jpg/512px-RWS_Tarot_04_Emperor.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/RWS_Tarot_04_Emperor.jpg/256px-RWS_Tarot_04_Emperor.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/RWS_Tarot_04_Emperor.jpg/128px-RWS_Tarot_04_Emperor.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/RWS_Tarot_04_Emperor.jpg/64px-RWS_Tarot_04_Emperor.jpg"
+          },
           cardId: 4
         }
       ]
@@ -165,7 +216,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Hierophant",
           alt: "A rendering of the tarot card The Hierophant depicting a priest",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_05_Hierophant.jpg/343px-RWS_Tarot_05_Hierophant.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_05_Hierophant.jpg/512px-RWS_Tarot_05_Hierophant.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_05_Hierophant.jpg/256px-RWS_Tarot_05_Hierophant.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_05_Hierophant.jpg/128px-RWS_Tarot_05_Hierophant.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_05_Hierophant.jpg/64px-RWS_Tarot_05_Hierophant.jpg"
+          },
           cardId: 5
         }
       ]
@@ -182,7 +238,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Lovers",
           alt: "A rendering of the tarot card The Lovers depicting a couple",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/RWS_Tarot_06_Lovers.jpg/343px-RWS_Tarot_06_Lovers.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/512px-RWS_Tarot_06_Lovers.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/256px-RWS_Tarot_06_Lovers.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/128px-RWS_Tarot_06_Lovers.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/64px-RWS_Tarot_06_Lovers.jpg"
+          },
           cardId: 6
         }
       ]
@@ -199,7 +260,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Chariot",
           alt: "A rendering of the tarot card The Chariot depicting a chariot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/343px-RWS_Tarot_07_Chariot.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/153px-RWS_Tarot_07_Chariot.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/256px-RWS_Tarot_07_Chariot.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/128px-RWS_Tarot_07_Chariot.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/64px-RWS_Tarot_07_Chariot.jpg"
+          },
           cardId: 7
         }
       ]
@@ -216,7 +282,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Strength",
           alt: "A rendering of the tarot card Strength depicting a person holding the mouth of a lion open",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/RWS_Tarot_08_Strength.jpg/343px-RWS_Tarot_08_Strength.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/149px-RWS_Tarot_08_Strength.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/256px-RWS_Tarot_08_Strength.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/128px-RWS_Tarot_08_Strength.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/64px-RWS_Tarot_08_Strength.jpg"
+          },
           cardId: 8
         }
       ]
@@ -233,7 +304,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Hermit",
           alt: "A rendering of the tarot card The Hermit depicting a cloaked figure with a staff and lantern walking through the snow",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/RWS_Tarot_09_The_Hermit.jpg/343px-RWS_Tarot_09_The_Hermit.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/154px-RWS_Tarot_09_Hermit.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/256px-RWS_Tarot_09_Hermit.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/128px-RWS_Tarot_09_Hermit.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/64px-RWS_Tarot_09_Hermit.jpg"
+          },
           cardId: 9
         }
       ]
@@ -250,7 +326,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Wheel of Fortune",
           alt: "A rendering of the tarot card Wheel of Fortune depicting a spinning wheel with four figures on it, representing the four seasons of life.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/RWS_Tarot_10_Wheel_of_Fortune.jpg/343px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/156px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/256px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/128px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/64px-RWS_Tarot_10_Wheel_of_Fortune.jpg"
+          },
           cardId: 10
         }
       ]
@@ -266,8 +347,13 @@ const deck: Deck = {
           id: 11,
           art_set: "rider-waite-smith",
           label: "Justice",
-          alt: "A rendering of the tarot card Justice depicting a seated figure holding a sword and scales.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/RWS_Tarot_11_Justice.jpg/343px-RWS_Tarot_11_Justice.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/RWS_Tarot_11_Justice.jpg/64px-RWS_Tarot_11_Justice.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/RWS_Tarot_11_Justice.jpg/128px-RWS_Tarot_11_Justice.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/RWS_Tarot_11_Justice.jpg/256px-RWS_Tarot_11_Justice.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/RWS_Tarot_11_Justice.jpg/512px-RWS_Tarot_11_Justice.jpg"
+          },
+          alt: "A rendering of the tarot card Justice depicting a figure holding a sword and scales",
           cardId: 11
         }
       ]
@@ -284,7 +370,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Hanged Man",
           alt: "A rendering of the tarot card The Hanged Man depicting a figure hanging upside down from a tree.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/RWS_Tarot_12_The_Hanged_Man.jpg/343px-RWS_Tarot_12_The_Hanged_Man.jpg",
+          url: {
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/153px-RWS_Tarot_12_Hanged_Man.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/256px-RWS_Tarot_12_Hanged_Man.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/128px-RWS_Tarot_12_Hanged_Man.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/64px-RWS_Tarot_12_Hanged_Man.jpg"
+          },
           cardId: 12
         }
       ]
@@ -301,7 +392,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Death",
           alt: "A rendering of the tarot card Death depicting a skeletal figure riding a horse and carrying a scythe.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/RWS_Tarot_13_Death.jpg/343px-RWS_Tarot_13_Death.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/RWS_Tarot_13_Death.jpg/64px-RWS_Tarot_13_Death.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/RWS_Tarot_13_Death.jpg/128px-RWS_Tarot_13_Death.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/RWS_Tarot_13_Death.jpg/256px-RWS_Tarot_13_Death.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/RWS_Tarot_13_Death.jpg/512px-RWS_Tarot_13_Death.jpg"
+          },
           cardId: 13
         }
       ]
@@ -318,7 +414,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Temperance",
           alt: "A rendering of the tarot card Temperance depicting an angel standing between two pools of water, pouring water from one to the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/RWS_Tarot_14_Temperance.jpg/343px-RWS_Tarot_14_Temperance.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/RWS_Tarot_14_Temperance.jpg/64px-RWS_Tarot_14_Temperance.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/RWS_Tarot_14_Temperance.jpg/128px-RWS_Tarot_14_Temperance.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/RWS_Tarot_14_Temperance.jpg/256px-RWS_Tarot_14_Temperance.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/RWS_Tarot_14_Temperance.jpg/512px-RWS_Tarot_14_Temperance.jpg"
+          },
           cardId: 14
         }
       ]
@@ -335,7 +436,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Devil",
           alt: "A rendering of the tarot card The Devil depicting a horned figure with a bat's wings and cloven hooves, sitting on a throne with two naked figures chained to it.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/RWS_Tarot_15_The_Devil.jpg/343px-RWS_Tarot_15_The_Devil.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RWS_Tarot_15_Devil.jpg/64px-RWS_Tarot_15_Devil.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RWS_Tarot_15_Devil.jpg/128px-RWS_Tarot_15_Devil.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RWS_Tarot_15_Devil.jpg/256px-RWS_Tarot_15_Devil.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RWS_Tarot_15_Devil.jpg/512px-RWS_Tarot_15_Devil.jpg"
+          },
           cardId: 15
         }
       ]
@@ -352,7 +458,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Tower",
           alt: "A rendering of the tarot card The Tower depicting a tower struck by lightning and crumbling to the ground.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/RWS_Tarot_16_The_Tower.jpg/343px-RWS_Tarot_16_The_Tower.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RWS_Tarot_16_Tower.jpg/64px-RWS_Tarot_16_Tower.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RWS_Tarot_16_Tower.jpg/128px-RWS_Tarot_16_Tower.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RWS_Tarot_16_Tower.jpg/256px-RWS_Tarot_16_Tower.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RWS_Tarot_16_Tower.jpg/512px-RWS_Tarot_16_Tower.jpg"
+          },
           cardId: 16
         }
       ]
@@ -369,7 +480,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Star",
           alt: "A rendering of the tarot card The Star depicting a naked woman kneeling beside a pool of water, pouring water from a pitcher into the pool.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/RWS_Tarot_17_The_Star.jpg/343px-RWS_Tarot_17_The_Star.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/RWS_Tarot_17_Star.jpg/64px-RWS_Tarot_17_Star.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/RWS_Tarot_17_Star.jpg/128px-RWS_Tarot_17_Star.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/RWS_Tarot_17_Star.jpg/256px-RWS_Tarot_17_Star.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/RWS_Tarot_17_Star.jpg/512px-RWS_Tarot_17_Star.jpg"
+          },
           cardId: 17
         }
       ]
@@ -386,7 +502,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Moon",
           alt: "A rendering of the tarot card The Moon depicting a full moon in the night sky, with a wolf and a dog howling at it.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/RWS_Tarot_18_The_Moon.jpg/343px-RWS_Tarot_18_The_Moon.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/RWS_Tarot_18_Moon.jpg/64px-RWS_Tarot_18_Moon.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/RWS_Tarot_18_Moon.jpg/128px-RWS_Tarot_18_Moon.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/RWS_Tarot_18_Moon.jpg/256px-RWS_Tarot_18_Moon.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/RWS_Tarot_18_Moon.jpg/512px-RWS_Tarot_18_Moon.jpg"
+          },
           cardId: 18
         }
       ]
@@ -403,7 +524,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The Sun",
           alt: "A rendering of the tarot card The Sun depicting a naked child riding a white horse, with a sun shining in the sky.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/RWS_Tarot_19_The_Sun.jpg/343px-RWS_Tarot_19_The_Sun.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/RWS_Tarot_19_Sun.jpg/64px-RWS_Tarot_19_Sun.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/RWS_Tarot_19_Sun.jpg/128px-RWS_Tarot_19_Sun.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/RWS_Tarot_19_Sun.jpg/256px-RWS_Tarot_19_Sun.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/RWS_Tarot_19_Sun.jpg/512px-RWS_Tarot_19_Sun.jpg"
+          },
           cardId: 19
         }
       ]
@@ -420,7 +546,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Judgment",
           alt: "A rendering of the tarot card Judgment depicting an angel blowing a trumpet, with figures rising from their graves.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/RWS_Tarot_20_Judgment.jpg/343px-RWS_Tarot_20_Judgment.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/156px-RWS_Tarot_20_Judgement.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/312px-RWS_Tarot_20_Judgement.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/624px-RWS_Tarot_20_Judgement.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/1248px-RWS_Tarot_20_Judgement.jpg"
+          },
           cardId: 20
         }
       ]
@@ -437,7 +568,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "The World",
           alt: "A rendering of the tarot card The World depicting a woman dancing inside a laurel wreath, surrounded by four animals at the corners of the card.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/RWS_Tarot_21_The_World.jpg/343px-RWS_Tarot_21_The_World.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/154px-RWS_Tarot_21_World.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/308px-RWS_Tarot_21_World.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/616px-RWS_Tarot_21_World.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/1232px-RWS_Tarot_21_World.jpg"
+          },
           cardId: 21
         }
       ]
@@ -455,7 +591,13 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ace of Wands",
           alt: "A rendering of the tarot card Ace of Wands depicting a hand holding a wand with a sprouting leaf at the top.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/RWS_Tarot_01_Ace_of_Wands.jpg/343px-RWS_Tarot_01_Ace_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wands01.jpg/64px-Wands01.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wands01.jpg/128px-Wands01.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wands01.jpg/256px-Wands01.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wands01.jpg/512px-Wands01.jpg"
+          },
+
           cardId: 22
         }
       ]
@@ -473,7 +615,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Two of Wands",
           alt: "A rendering of the tarot card Two of Wands depicting two crossed wands, with a globe on top.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/RWS_Tarot_02_Two_of_Wands.jpg/343px-RWS_Tarot_02_Two_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/155px-Wands02.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/310px-Wands02.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/620px-Wands02.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/1240px-Wands02.jpg"
+          },
           cardId: 23
         }
       ]
@@ -491,7 +638,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Three of Wands",
           alt: "A rendering of the tarot card Three of Wands depicting a man standing on a cliff, looking out at the sea.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/RWS_Tarot_03_Three_of_Wands.jpg/343px-RWS_Tarot_03_Three_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/153px-Wands03.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/306px-Wands03.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/612px-Wands03.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/1224px-Wands03.jpg"
+          },
           cardId: 24
         }
       ]
@@ -509,7 +661,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Four of Wands",
           alt: "A rendering of the tarot card Four of Wands depicting two couples dancing under a garland of flowers.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/RWS_Tarot_04_Four_of_Wands.jpg/343px-RWS_Tarot_04_Four_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/153px-Wands04.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/306px-Wands04.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/612px-Wands04.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/1224px-Wands04.jpg"
+          },
           cardId: 25
         }
       ]
@@ -527,7 +684,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Five of Wands",
           alt: "A rendering of the tarot card Five of Wands depicting five young men fighting with wands.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/RWS_Tarot_05_Five_of_Wands.jpg/343px-RWS_Tarot_05_Five_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/154px-Wands05.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/308px-Wands05.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/616px-Wands05.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/1232px-Wands05.jpg"
+          },
           cardId: 26
         }
       ]
@@ -545,7 +707,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Six of Wands",
           alt: "A rendering of the tarot card Six of Wands depicting a man on horseback, holding a laurel wreath in the air.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/RWS_Tarot_06_Six_of_Wands.jpg/343px-RWS_Tarot_06_Six_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/156px-Wands06.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/312px-Wands06.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/624px-Wands06.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/1248px-Wands06.jpg"
+          },
           cardId: 27
         }
       ]
@@ -563,7 +730,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Seven of Wands",
           alt: "A rendering of the tarot card Seven of Wands depicting a man standing on a cliff, defending himself from six other men with wands.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/RWS_Tarot_07_Seven_of_Wands.jpg/343px-RWS_Tarot_07_Seven_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/153px-Wands07.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/306px-Wands07.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/612px-Wands07.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/1224px-Wands07.jpg"
+          },
           cardId: 28
         }
       ]
@@ -581,7 +753,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Eight of Wands",
           alt: "A rendering of the tarot card Eight of Wands depicting eight wands flying through the air.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/RWS_Tarot_08_Eight_of_Wands.jpg/343px-RWS_Tarot_08_Eight_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/153px-Wands08.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/306px-Wands08.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/612px-Wands08.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/1224px-Wands08.jpg"
+          },
           cardId: 29
         }
       ]
@@ -599,7 +776,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Nine of Wands",
           alt: "A rendering of the tarot card Nine of Wands depicting a man with a wand in each hand, standing guard over eight other wands.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RWS_Tarot_09_Nine_of_Wands.jpg/343px-RWS_Tarot_09_Nine_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tarot_Nine_of_Wands.jpg/64px-Tarot_Nine_of_Wands.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tarot_Nine_of_Wands.jpg/128px-Tarot_Nine_of_Wands.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tarot_Nine_of_Wands.jpg/256px-Tarot_Nine_of_Wands.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tarot_Nine_of_Wands.jpg/512px-Tarot_Nine_of_Wands.jpg"
+          },
           cardId: 30
         }
       ]
@@ -617,7 +799,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ten of Wands",
           alt: "A rendering of the tarot card Ten of Wands depicting a man carrying a heavy bundle of sticks on his back.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/RWS_Tarot_10_Ten_of_Wands.jpg/343px-RWS_Tarot_10_Ten_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wands10.jpg/64px-Wands10.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wands10.jpg/128px-Wands10.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wands10.jpg/256px-Wands10.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wands10.jpg/512px-Wands10.jpg"
+          },
           cardId: 31
         }
       ]
@@ -635,7 +822,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Page of Wands",
           alt: "A rendering of the tarot card Page of Wands depicting a young man holding a wand in one hand and a flower in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RWS_Tarot_11_Page_of_Wands.jpg/343px-RWS_Tarot_11_Page_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Wands11.jpg/64px-Wands11.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Wands11.jpg/128px-Wands11.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Wands11.jpg/256px-Wands11.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Wands11.jpg/512px-Wands11.jpg"
+          },
           cardId: 32
         }
       ]
@@ -653,7 +845,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Knight of Wands",
           alt: "A rendering of the tarot card Knight of Wands depicting a young man on a white horse, holding a wand in one hand and a shield in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/RWS_Tarot_12_Knight_of_Wands.jpg/343px-RWS_Tarot_12_Knight_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Wands12.jpg/64px-Wands12.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Wands12.jpg/128px-Wands12.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Wands12.jpg/256px-Wands12.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Wands12.jpg/512px-Wands12.jpg"
+          },
           cardId: 33
         }
       ]
@@ -671,7 +868,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Queen of Wands",
           alt: "A rendering of the tarot card Queen of Wands depicting a woman sitting on a throne, holding a wand in one hand and a sunflower in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/RWS_Tarot_13_Queen_of_Wands.jpg/343px-RWS_Tarot_13_Queen_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Wands13.jpg/64px-Wands13.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Wands13.jpg/128px-Wands13.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Wands13.jpg/256px-Wands13.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Wands13.jpg/512px-Wands13.jpg"
+          },
           cardId: 34
         }
       ]
@@ -689,7 +891,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "King of Wands",
           alt: "A rendering of the tarot card King of Wands depicting a man sitting on a throne, holding a wand in one hand and a lion-headed scepter in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/RWS_Tarot_14_King_of_Wands.jpg/343px-RWS_Tarot_14_King_of_Wands.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Wands14.jpg/64px-Wands14.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Wands14.jpg/128px-Wands14.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Wands14.jpg/256px-Wands14.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Wands14.jpg/512px-Wands14.jpg"
+          },
           cardId: 35
         }
       ]
@@ -707,7 +914,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ace of Cups",
           alt: "A rendering of the tarot card Ace of Cups depicting a white dove holding a golden cup in its beak.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Cups01.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cups01.jpg/64px-Cups01.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cups01.jpg/128px-Cups01.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cups01.jpg/256px-Cups01.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cups01.jpg/512px-Cups01.jpg"
+          },
           cardId: 36
         }
       ]
@@ -725,7 +937,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Two of Cups",
           alt: "A rendering of the tarot card Two of Cups depicting a man and a woman sitting face-to-face, holding cups in their hands.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/RWS_Tarot_02_Two_of_Cups.jpg/343px-RWS_Tarot_02_Two_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Cups02.jpg/64px-Cups02.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Cups02.jpg/128px-Cups02.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Cups02.jpg/256px-Cups02.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Cups02.jpg/512px-Cups02.jpg"
+          },
           cardId: 37
         }
       ]
@@ -743,7 +960,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Three of Cups",
           alt: "A rendering of the tarot card Three of Cups depicting three women dancing and celebrating together.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/RWS_Tarot_03_Three_of_Cups.jpg/343px-RWS_Tarot_03_Three_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Cups03.jpg/64px-Cups03.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Cups03.jpg/128px-Cups03.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Cups03.jpg/256px-Cups03.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Cups03.jpg/512px-Cups03.jpg"
+          },
           cardId: 38
         }
       ]
@@ -761,7 +983,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Four of Cups",
           alt: "A rendering of the tarot card Four of Cups depicting a young man sitting under a tree, looking at three cups on the ground in front of him. A fourth cup is being offered to him by a hand from the clouds.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/RWS_Tarot_04_Four_of_Cups.jpg/343px-RWS_Tarot_04_Four_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cups04.jpg/64px-Cups04.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cups04.jpg/128px-Cups04.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cups04.jpg/256px-Cups04.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cups04.jpg/512px-Cups04.jpg"
+          },
           cardId: 39
         }
       ]
@@ -779,7 +1006,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Five of Cups",
           alt: "A rendering of the tarot card Five of Cups depicting a young man kneeling in front of a fountain, looking at three cups that have fallen to the ground. Two cups remain upright in the fountain.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/RWS_Tarot_05_Five_of_Cups.jpg/343px-RWS_Tarot_05_Five_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cups05.jpg/64px-Cups05.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cups05.jpg/128px-Cups05.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cups05.jpg/256px-Cups05.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cups05.jpg/512px-Cups05.jpg"
+          },
           cardId: 40
         }
       ]
@@ -797,7 +1029,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Six of Cups",
           alt: "A rendering of the tarot card Six of Cups depicting two children playing together in a garden. In the background, there are six cups arranged in a circle.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/RWS_Tarot_06_Six_of_Cups.jpg/343px-RWS_Tarot_06_Six_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Cups06.jpg/64px-Cups06.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Cups06.jpg/128px-Cups06.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Cups06.jpg/256px-Cups06.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Cups06.jpg/512px-Cups06.jpg"
+          },
           cardId: 41
         }
       ]
@@ -815,7 +1052,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Seven of Cups",
           alt: "A rendering of the tarot card Seven of Cups depicting a young man sitting on the ground in front of seven cups, each containing a different image.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/RWS_Tarot_07_Seven_of_Cups.jpg/343px-RWS_Tarot_07_Seven_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Cups07.jpg/64px-Cups07.jpg",
+            small:  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Cups07.jpg/128px-Cups07.jpg",
+            mid:  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Cups07.jpg/256px-Cups07.jpg",
+            large:  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Cups07.jpg/512px-Cups07.jpg"
+          },
           cardId: 42
         }
       ]
@@ -833,7 +1075,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Eight of Cups",
           alt: "A rendering of the tarot card Eight of Cups depicting a man walking away from eight cups that are arranged in a circle.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/RWS_Tarot_08_Eight_of_Cups.jpg/343px-RWS_Tarot_08_Eight_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cups08.jpg/64px-Cups08.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cups08.jpg/128px-Cups08.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cups08.jpg/256px-Cups08.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cups08.jpg/512px-Cups08.jpg"
+          },
           cardId: 43
         }
       ]
@@ -851,7 +1098,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Nine of Cups",
           alt: "A rendering of the tarot card Nine of Cups depicting a man sitting at a table with nine cups in front of him. He is smiling and looks content.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RWS_Tarot_09_Nine_of_Cups.jpg/343px-RWS_Tarot_09_Nine_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Cups09.jpg/64px-Cups09.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Cups09.jpg/128px-Cups09.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Cups09.jpg/256px-Cups09.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Cups09.jpg/512px-Cups09.jpg"
+          },
           cardId: 44
         }
       ]
@@ -869,7 +1121,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ten of Cups",
           alt: "A rendering of the tarot card Ten of Cups depicting a family of four standing under a rainbow. They are all holding hands and smiling.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/RWS_Tarot_10_Ten_of_Cups.jpg/343px-RWS_Tarot_10_Ten_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Cups10.jpg/64px-Cups10.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Cups10.jpg/128px-Cups10.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Cups10.jpg/256px-Cups10.jpg",
+            large:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Cups10.jpg/512px-Cups10.jpg"
+          },
           cardId: 45
         }
       ]
@@ -887,7 +1144,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Page of Cups",
           alt: "A rendering of the tarot card Page of Cups depicting a young man kneeling by a stream, offering a cup of water to a fish.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RWS_Tarot_11_Page_of_Cups.jpg/343px-RWS_Tarot_11_Page_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cups11.jpg/64px-Cups11.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cups11.jpg/128px-Cups11.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cups11.jpg/256px-Cups11.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cups11.jpg/512px-Cups11.jpg"
+          },
           cardId: 46
         }
       ]
@@ -905,7 +1167,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Knight of Cups",
           alt: "A rendering of the tarot card Knight of Cups depicting a young man riding on a white horse, holding a cup in one hand and a flower in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/RWS_Tarot_12_Knight_of_Cups.jpg/343px-RWS_Tarot_12_Knight_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cups12.jpg/64px-Cups12.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cups12.jpg/128px-Cups12.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cups12.jpg/256px-Cups12.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cups12.jpg/512px-Cups12.jpg"
+          },
           cardId: 47
         }
       ]
@@ -923,7 +1190,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Queen of Cups",
           alt: "A rendering of the tarot card Queen of Cups depicting a woman sitting on a throne, holding a cup in one hand and a golden fish in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/RWS_Tarot_13_Queen_of_Cups.jpg/343px-RWS_Tarot_13_Queen_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cups13.jpg/64px-Cups13.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cups13.jpg/128px-Cups13.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cups13.jpg/256px-Cups13.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cups13.jpg/512px-Cups13.jpg"
+          },
           cardId: 48
         }
       ]
@@ -941,7 +1213,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "King of Cups",
           alt: "A rendering of the tarot card King of Cups depicting a man sitting on a throne, holding a cup in one hand and a scepter in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/RWS_Tarot_14_King_of_Cups.jpg/343px-RWS_Tarot_14_King_of_Cups.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cups14.jpg/64px-Cups14.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cups14.jpg/128px-Cups14.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cups14.jpg/256px-Cups14.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cups14.jpg/512px-Cups14.jpg"
+          },
           cardId: 49
         }
       ]
@@ -959,7 +1236,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ace of Swords",
           alt: "A rendering of the tarot card Ace of Swords depicting a white hand emerging from a cloud, holding a sword. Above the sword is a crown.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/RWS_Tarot_01_Ace_of_Swords.jpg/343px-RWS_Tarot_01_Ace_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Swords01.jpg/64px-Swords01.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Swords01.jpg/128px-Swords01.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Swords01.jpg/256px-Swords01.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Swords01.jpg/512px-Swords01.jpg"
+          },
           cardId: 50
         }
       ]
@@ -977,7 +1259,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Two of Swords",
           alt: "A rendering of the tarot card Two of Swords depicting a woman blindfolded, sitting between two swords. She is holding a sword in each hand.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/RWS_Tarot_02_Two_of_Swords.jpg/343px-RWS_Tarot_02_Two_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Swords02.jpg/64px-Swords02.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Swords02.jpg/128px-Swords02.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Swords02.jpg/256px-Swords02.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Swords02.jpg/512px-Swords02.jpg"
+          },
           cardId: 51
         }
       ]
@@ -995,7 +1282,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Three of Swords",
           alt: "A rendering of the tarot card Three of Swords depicting a heart pierced by three swords.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/RWS_Tarot_03_Three_of_Swords.jpg/343px-RWS_Tarot_03_Three_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Swords03.jpg/64px-Swords03.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Swords03.jpg/128px-Swords03.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Swords03.jpg/256px-Swords03.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Swords03.jpg/512px-Swords03.jpg"
+          },
           cardId: 52
         }
       ]
@@ -1013,7 +1305,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Four of Swords",
           alt: "A rendering of the tarot card Four of Swords depicting a knight lying on a tomb, with his hands folded across his chest. Three swords are hanging above him, and a fourth sword is on the ground next to him.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/RWS_Tarot_04_Four_of_Swords.jpg/343px-RWS_Tarot_04_Four_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Swords04.jpg/64px-Swords04.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Swords04.jpg/128px-Swords04.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Swords04.jpg/256px-Swords04.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Swords04.jpg/512px-Swords04.jpg"
+          },
           cardId: 53
         }
       ]
@@ -1031,7 +1328,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Five of Swords",
           alt: "A rendering of the tarot card Five of Swords depicting two men fighting with swords, while three other men lie defeated on the ground.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/RWS_Tarot_05_Five_of_Swords.jpg/343px-RWS_Tarot_05_Five_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Swords05.jpg/64px-Swords05.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Swords05.jpg/128px-Swords05.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Swords05.jpg/256px-Swords05.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Swords05.jpg/512px-Swords05.jpg"
+          },
           cardId: 54
         }
       ]
@@ -1049,7 +1351,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Six of Swords",
           alt: "A rendering of the tarot card Six of Swords depicting a woman and a child crossing a river in a boat. They are being ferried by a boatman. Six swords are sticking out of the water behind them.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/RWS_Tarot_06_Six_of_Swords.jpg/343px-RWS_Tarot_06_Six_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Swords06.jpg/64px-Swords06.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Swords06.jpg/128px-Swords06.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Swords06.jpg/256px-Swords06.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Swords06.jpg/512px-Swords06.jpg"
+          },
           cardId: 55
         }
       ]
@@ -1067,7 +1374,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Seven of Swords",
           alt: "A rendering of the tarot card Seven of Swords depicting a young man sneaking away with seven swords. Three swords are still stuck in the ground behind him.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/RWS_Tarot_07_Seven_of_Swords.jpg/343px-RWS_Tarot_07_Seven_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Swords07.jpg/64px-Swords07.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Swords07.jpg/128px-Swords07.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Swords07.jpg/256px-Swords07.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Swords07.jpg/512px-Swords07.jpg"
+          },
           cardId: 56
         }
       ]
@@ -1085,7 +1397,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Eight of Swords",
           alt: "A rendering of the tarot card Eight of Swords depicting a blindfolded woman sitting on the ground, with eight swords stuck in the ground around her.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/RWS_Tarot_08_Eight_of_Swords.jpg/343px-RWS_Tarot_08_Eight_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Swords08.jpg/64px-Swords08.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Swords08.jpg/128px-Swords08.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Swords08.jpg/256px-Swords08.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Swords08.jpg/512px-Swords08.jpg"
+          },
           cardId: 57
         }
       ]
@@ -1103,7 +1420,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Nine of Swords",
           alt: "A rendering of the tarot card Nine of Swords depicting a woman sitting up in bed, looking terrified. Nine swords are hanging above her head.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/RWS_Tarot_09_Nine_of_Swords.jpg/343px-RWS_Tarot_09_Nine_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Swords09.jpg/64px-Swords09.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Swords09.jpg/128px-Swords09.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Swords09.jpg/256px-Swords09.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Swords09.jpg/512px-Swords09.jpg"
+          },
           cardId: 58
         }
       ]
@@ -1121,7 +1443,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ten of Swords",
           alt: "A rendering of the tarot card Ten of Swords depicting a man lying dead on the ground, with ten swords piercing his body.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/RWS_Tarot_10_Ten_of_Swords.jpg/343px-RWS_Tarot_10_Ten_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords10.jpg/64px-Swords10.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords10.jpg/128px-Swords10.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords10.jpg/256px-Swords10.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords10.jpg/512px-Swords10.jpg"
+          },
           cardId: 59
         }
       ]
@@ -1139,7 +1466,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Page of Swords",
           alt: "A rendering of the tarot card Page of Swords depicting a young man sitting on a rock, holding a sword in one hand and a scroll of paper in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/RWS_Tarot_11_Page_of_Swords.jpg/343px-RWS_Tarot_11_Page_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Swords11.jpg/64px-Swords11.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Swords11.jpg/128px-Swords11.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Swords11.jpg/256px-Swords11.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Swords11.jpg/512px-Swords11.jpg"
+          },
           cardId: 60
         }
       ]
@@ -1157,7 +1489,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Knight of Swords",
           alt: "A rendering of the tarot card Knight of Swords depicting a young man riding on a white horse, holding a sword in one hand and a raised fist in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/RWS_Tarot_12_Knight_of_Swords.jpg/343px-RWS_Tarot_12_Knight_of_Swords.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Swords12.jpg/64px-Swords12.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Swords12.jpg/128px-Swords12.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Swords12.jpg/256px-Swords12.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Swords12.jpg/512px-Swords12.jpg"
+          },
           cardId: 61
         }
       ]
@@ -1175,7 +1512,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Queen of Swords",
           alt: "A rendering of the tarot card Queen of Swords depicting a woman sitting on a throne, holding a sword in one hand and a scale in the other.",
-          url:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/RWS_Tarot_13_Queen_of_Swords.jpg/343px-RWS_Tarot_13_Queen_of_Swords.jpg",
+          url:{
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords13.jpg/64px-Swords13.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords13.jpg/128px-Swords13.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords13.jpg/256px-Swords13.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Swords13.jpg/512px-Swords13.jpg"
+          },
           cardId: 62
         }
       ]
@@ -1193,7 +1535,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "King of Swords",
           alt: "A rendering of the tarot card King of Swords depicting a man sitting on a throne, holding a sword in one hand and a scepter in the other.",
-          url:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/RWS_Tarot_14_King_of_Swords.jpg/343px-RWS_Tarot_14_King_of_Swords.jpg",
+          url:{
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Swords14.jpg/64px-Swords14.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Swords14.jpg/128px-Swords14.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Swords14.jpg/256px-Swords14.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Swords14.jpg/512px-Swords14.jpg"
+          },
           cardId: 63
         }
       ]
@@ -1211,7 +1558,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ace of Pentacles",
           alt: "A rendering of the tarot card Ace of Pentacles depicting a hand emerging from a cloud, holding a gold coin. A pentacle is in the background.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/RWS_Tarot_01_Ace_of_Pentacles.jpg/343px-RWS_Tarot_01_Ace_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Pents01.jpg/64px-Pents01.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Pents01.jpg/128px-Pents01.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Pents01.jpg/256px-Pents01.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Pents01.jpg/512px-Pents01.jpg"
+          },
           cardId: 64
         }
       ]
@@ -1229,7 +1581,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Two of Pentacles",
           alt: "A rendering of the tarot card Two of Pentacles depicting a young man juggling two gold coins. He is standing on a boat that is tossed about by rough seas.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/RWS_Tarot_02_Two_of_Pentacles.jpg/343px-RWS_Tarot_02_Two_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Pents02.jpg/64px-Pents02.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Pents02.jpg/128px-Pents02.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Pents02.jpg/256px-Pents02.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Pents02.jpg/512px-Pents02.jpg"
+          },
           cardId: 65
         }
       ]
@@ -1247,7 +1604,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Three of Pentacles",
           alt: "A rendering of the tarot card Three of Pentacles depicting three stonemasons working together to build a cathedral. One stonemason is holding a hammer and chisel, another is holding a plumb line, and the third is holding a trowel.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/RWS_Tarot_03_Three_of_Pentacles.jpg/343px-RWS_Tarot_03_Three_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents03.jpg/64px-Pents03.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents03.jpg/128px-Pents03.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents03.jpg/256px-Pents03.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents03.jpg/512px-Pents03.jpg"
+          },
           cardId: 66
         }
       ]
@@ -1265,7 +1627,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Four of Pentacles",
           alt: "A rendering of the tarot card Four of Pentacles depicting a man sitting on a chest of gold coins, clutching one of the coins tightly in his hand.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/RWS_Tarot_04_Four_of_Pentacles.jpg/343px-RWS_Tarot_04_Four_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pents04.jpg/64px-Pents04.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pents04.jpg/128px-Pents04.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pents04.jpg/256px-Pents04.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pents04.jpg/512px-Pents04.jpg"
+          },
           cardId: 67
         }
       ]
@@ -1283,7 +1650,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Five of Pentacles",
           alt: "A rendering of the tarot card Five of Pentacles depicting two beggars standing in the snow outside a church. They are both wearing rags and one of them is barefoot.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/RWS_Tarot_05_Five_of_Pentacles.jpg/343px-RWS_Tarot_05_Five_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pents05.jpg/64px-Pents05.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pents05.jpg/128px-Pents05.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pents05.jpg/256px-Pents05.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pents05.jpg/512px-Pents05.jpg"
+          },
           cardId: 68
         }
       ]
@@ -1301,7 +1673,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Six of Pentacles",
           alt: "A rendering of the tarot card Six of Pentacles depicting a wealthy man giving gold coins to two beggars.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/RWS_Tarot_06_Six_of_Pentacles.jpg/343px-RWS_Tarot_06_Six_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pents06.jpg/64px-Pents06.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pents06.jpg/128px-Pents06.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pents06.jpg/256px-Pents06.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pents06.jpg/512px-Pents06.jpg"
+          },
           cardId: 69
         }
       ]
@@ -1319,7 +1696,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Seven of Pentacles",
           alt: "A rendering of the tarot card Seven of Pentacles depicting a young man leaning on a pitchfork, looking at seven gold coins that are hanging from a tree.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/RWS_Tarot_07_Seven_of_Pentacles.jpg/343px-RWS_Tarot_07_Seven_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Pents07.jpg/64px-Pents07.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Pents07.jpg/128px-Pents07.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Pents07.jpg/256px-Pents07.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Pents07.jpg/512px-Pents07.jpg"
+          },
           cardId: 70
         }
       ]
@@ -1337,7 +1719,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Eight of Pentacles",
           alt: "A rendering of the tarot card Eight of Pentacles depicting a young man working at a table, carving a gold coin. There are seven other gold coins on the table.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/RWS_Tarot_08_Eight_of_Pentacles.jpg/343px-RWS_Tarot_08_Eight_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Pents08.jpg/64px-Pents08.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Pents08.jpg/128px-Pents08.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Pents08.jpg/256px-Pents08.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Pents08.jpg/512px-Pents08.jpg"
+          },
           cardId: 71
         }
       ]
@@ -1355,7 +1742,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Nine of Pentacles",
           alt: "A rendering of the tarot card Nine of Pentacles depicting a woman walking in a garden, holding a falcon on one hand and a gold coin in the other. She is surrounded by abundant flowers and fruits.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/RWS_Tarot_09_Nine_of_Pentacles.jpg/343px-RWS_Tarot_09_Nine_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Pents09.jpg/64px-Pents09.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Pents09.jpg/128px-Pents09.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Pents09.jpg/256px-Pents09.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Pents09.jpg/512px-Pents09.jpg"
+          },
           cardId: 72
         }
       ]
@@ -1373,7 +1765,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Ten of Pentacles",
           alt: "A rendering of the tarot card Ten of Pentacles depicting a wealthy family standing in front of a large manor house. They are all surrounded by gold coins.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/RWS_Tarot_10_Ten_of_Pentacles.jpg/343px-RWS_Tarot_10_Ten_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents10.jpg/64px-Pents10.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents10.jpg/128px-Pents10.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents10.jpg/256px-Pents10.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pents10.jpg/512px-Pents10.jpg"
+          },
           cardId: 73
         }
       ]
@@ -1391,7 +1788,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Page of Pentacles",
           alt: "A rendering of the tarot card Page of Pentacles depicting a young man sitting on a rock, holding a gold coin in one hand and a pentacle in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/RWS_Tarot_11_Page_of_Pentacles.jpg/343px-RWS_Tarot_11_Page_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Pents11.jpg/64px-Pents11.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Pents11.jpg/128px-Pents11.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Pents11.jpg/256px-Pents11.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Pents11.jpg/512px-Pents11.jpg"
+          },
           cardId: 74
         }
       ]
@@ -1409,7 +1811,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Knight of Pentacles",
           alt: "A rendering of the tarot card Knight of Pentacles depicting a young man riding on a horse, holding a gold coin in one hand and a pentacle in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/RWS_Tarot_12_Knight_of_Pentacles.jpg/343px-RWS_Tarot_12_Knight_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Pents12.jpg/64px-Pents12.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Pents12.jpg/128px-Pents12.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Pents12.jpg/256px-Pents12.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Pents12.jpg/512px-Pents12.jpg"
+          },
           cardId: 75
         }
       ]
@@ -1427,7 +1834,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "Queen of Pentacles",
           alt: "A rendering of the tarot card Queen of Pentacles depicting a woman sitting on a throne, holding a gold coin in one hand and a pentacle in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/RWS_Tarot_13_Queen_of_Pentacles.jpg/343px-RWS_Tarot_13_Queen_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pents13.jpg/64px-Pents13.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pents13.jpg/128px-Pents13.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pents13.jpg/256px-Pents13.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pents13.jpg/512px-Pents13.jpg"
+          },
           cardId: 76
         }
       ]
@@ -1445,7 +1857,12 @@ const deck: Deck = {
           art_set: "rider-waite-smith",
           label: "King of Pentacles",
           alt: "A rendering of the tarot card King of Pentacles depicting a man sitting on a throne, holding a gold coin in one hand and a pentacle in the other.",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/RWS_Tarot_14_King_of_Pentacles.jpg/343px-RWS_Tarot_14_King_of_Pentacles.jpg",
+          url: {
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pents14.jpg/64px-Pents14.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pents14.jpg/128px-Pents14.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pents14.jpg/256px-Pents14.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pents14.jpg/512px-Pents14.jpg"
+          },
           cardId: 77
         }
       ]

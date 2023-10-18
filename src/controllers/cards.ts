@@ -2,7 +2,7 @@ import * as express from "express";
 
 import { DefaultController } from ".";
 import { logger } from "../utils/logger";
-import { getCardByID, newDeckDrawThree } from "../models/cards";
+import { getCardByID, newDeckDrawThree, getCardImagesBySize } from "../models/cards";
 
 class CardController extends DefaultController {
   constructor() {
@@ -10,9 +10,11 @@ class CardController extends DefaultController {
   }
 
   public initializeRoutes() {
+    this.router.get(`${this.path}/list`, this.getCardListBySize);
     this.router.get(`${this.path}/:id`, this.getCardByID);
     this.router.get(`${this.path}`, this.drawThreeCards);
     this.router.post(`${this.path}/slack`, this.drawThreeCardsSlack);
+  
   }
 
   /**
@@ -65,7 +67,7 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `Very interesting, <@${request.query.user_id}>. Let's see what the cards have to say... :crystal_ball:`
+            text: `Very interesting, let's see what the cards have to say... :crystal_ball:`
           }
         },
         {
@@ -75,7 +77,7 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `Your Past card is *${cards[0].name}*, \n ${cards[0].description}`
+            text: `Your Past card is *<${cards[0].name}|${cards[0].cardImages[0].url.large}>*, \n ${cards[0].description}`
           },
         },
         {
@@ -126,6 +128,20 @@ class CardController extends DefaultController {
     };
     logger.info(`CardController.drawThreeCardsSlack: ${cards[0].name}, ${cards[1].name}, ${cards[2].name}`);
     response.status(200).send(slackResponse);
+  }
+
+  private getCardListBySize = (
+    request: express.Request,
+    response: express.Response
+  ) => {
+    const cardResponse = this.getDefaultResponse();
+    const size = `${request.query.size}`;
+    const cards = getCardImagesBySize(size);
+    cardResponse.data = {
+      ...cards,
+    };
+    logger.info(`CardController.getCardListBySize: ${cards.length} of size ${size} cards`);
+    response.status(200).send(cardResponse);
   }
 }
 

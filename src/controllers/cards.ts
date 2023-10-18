@@ -65,11 +65,18 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `Your Past card is ${cards[0].name}, \n ${cards[0].description}`
+            text: `Very interesting, <@${request.body.user_id}>. Let's see what the cards have to say... :crystal_ball:`
+          }
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `Your Past card is *${cards[0].name}*, \n ${cards[0].description}`
           },
           accessory: {
             type: "image",
-            image_url: `${cards[0].cardImages[0].url.tiny}`,
+            image_url: `${cards[0].cardImages[0].url.small}`,
             alt_text: `${cards[0].cardImages[0].alt}`
           }
         },
@@ -77,11 +84,11 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `Your Present card is ${cards[1].name}, \n ${cards[1].description}`
+            text: `Your Present card is *${cards[1].name}* \n ${cards[1].description}`
           },
           accessory: {
             type: "image",
-            image_url: `${cards[1].cardImages[0].url.tiny}`,
+            image_url: `${cards[1].cardImages[0].url.small}`,
             alt_text: `${cards[1].cardImages[0].alt}`
           }
         },
@@ -89,11 +96,11 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `Your Future card is ${cards[2].name}, \n ${cards[2].description}`
+            text: `Your Future card is *${cards[2].name}* \n ${cards[2].description}`
           },
           accessory: {
             type: "image",
-            image_url: `${cards[2].cardImages[0].url.tiny}`,
+            image_url: `${cards[2].cardImages[0].url.small}`,
             alt_text: `${cards[2].cardImages[0].alt}`
           }
         }

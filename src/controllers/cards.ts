@@ -65,7 +65,7 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `Very interesting, <@${request.body.user_id}>. Let's see what the cards have to say... :crystal_ball:`
+            text: `Very interesting, <@${request.params.user_name}>. Let's see what the cards have to say... :crystal_ball:`
           }
         },
         {

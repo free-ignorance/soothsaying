@@ -1,4 +1,4 @@
-
+import { logger } from "../utils/logger";
 
 /**
  * Tarot Card
@@ -151,9 +151,9 @@ const deck: Deck = {
           label: "The High Priestess",
           alt: "A rendering of the tarot card The High Priestess depicting a priestess",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/500px-RWS_Tarot_02_High_Priestess.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/512px-RWS_Tarot_02_High_Priestess.jpg",
             mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/256px-RWS_Tarot_02_High_Priestess.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/100px-RWS_Tarot_02_High_Priestess.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/128px-RWS_Tarot_02_High_Priestess.jpg",
             tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/64px-RWS_Tarot_02_High_Priestess.jpg"
           },
           cardId: 2
@@ -261,7 +261,7 @@ const deck: Deck = {
           label: "The Chariot",
           alt: "A rendering of the tarot card The Chariot depicting a chariot",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/153px-RWS_Tarot_07_Chariot.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/512px-RWS_Tarot_07_Chariot.jpg",
             mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/256px-RWS_Tarot_07_Chariot.jpg",
             small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/128px-RWS_Tarot_07_Chariot.jpg",
             tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_07_Chariot.jpg/64px-RWS_Tarot_07_Chariot.jpg"
@@ -283,7 +283,7 @@ const deck: Deck = {
           label: "Strength",
           alt: "A rendering of the tarot card Strength depicting a person holding the mouth of a lion open",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/149px-RWS_Tarot_08_Strength.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/512px-RWS_Tarot_08_Strength.jpg",
             mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/256px-RWS_Tarot_08_Strength.jpg",
             small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/128px-RWS_Tarot_08_Strength.jpg",
             tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/64px-RWS_Tarot_08_Strength.jpg"
@@ -305,7 +305,7 @@ const deck: Deck = {
           label: "The Hermit",
           alt: "A rendering of the tarot card The Hermit depicting a cloaked figure with a staff and lantern walking through the snow",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/154px-RWS_Tarot_09_Hermit.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/512px-RWS_Tarot_09_Hermit.jpg",
             mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/256px-RWS_Tarot_09_Hermit.jpg",
             small: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/128px-RWS_Tarot_09_Hermit.jpg",
             tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/64px-RWS_Tarot_09_Hermit.jpg"
@@ -327,7 +327,7 @@ const deck: Deck = {
           label: "Wheel of Fortune",
           alt: "A rendering of the tarot card Wheel of Fortune depicting a spinning wheel with four figures on it, representing the four seasons of life.",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/156px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/512px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
             mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/256px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
             small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/128px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
             tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/64px-RWS_Tarot_10_Wheel_of_Fortune.jpg"
@@ -371,7 +371,7 @@ const deck: Deck = {
           label: "The Hanged Man",
           alt: "A rendering of the tarot card The Hanged Man depicting a figure hanging upside down from a tree.",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/153px-RWS_Tarot_12_Hanged_Man.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/512px-RWS_Tarot_12_Hanged_Man.jpg",
             mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/256px-RWS_Tarot_12_Hanged_Man.jpg",
             small: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/128px-RWS_Tarot_12_Hanged_Man.jpg",
             tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/64px-RWS_Tarot_12_Hanged_Man.jpg"
@@ -547,10 +547,10 @@ const deck: Deck = {
           label: "Judgment",
           alt: "A rendering of the tarot card Judgment depicting an angel blowing a trumpet, with figures rising from their graves.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/156px-RWS_Tarot_20_Judgement.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/312px-RWS_Tarot_20_Judgement.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/624px-RWS_Tarot_20_Judgement.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/1248px-RWS_Tarot_20_Judgement.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/64px-RWS_Tarot_20_Judgement.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/128px-RWS_Tarot_20_Judgement.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/256px-RWS_Tarot_20_Judgement.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/512px-RWS_Tarot_20_Judgement.jpg"
           },
           cardId: 20
         }
@@ -569,10 +569,10 @@ const deck: Deck = {
           label: "The World",
           alt: "A rendering of the tarot card The World depicting a woman dancing inside a laurel wreath, surrounded by four animals at the corners of the card.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/154px-RWS_Tarot_21_World.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/308px-RWS_Tarot_21_World.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/616px-RWS_Tarot_21_World.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/1232px-RWS_Tarot_21_World.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/64px-RWS_Tarot_21_World.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/128px-RWS_Tarot_21_World.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/256px-RWS_Tarot_21_World.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/512px-RWS_Tarot_21_World.jpg"
           },
           cardId: 21
         }
@@ -616,10 +616,10 @@ const deck: Deck = {
           label: "Two of Wands",
           alt: "A rendering of the tarot card Two of Wands depicting two crossed wands, with a globe on top.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/155px-Wands02.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/310px-Wands02.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/620px-Wands02.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/1240px-Wands02.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/64px-Wands02.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/128px-Wands02.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/256px-Wands02.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Wands02.jpg/512px-Wands02.jpg"
           },
           cardId: 23
         }
@@ -639,10 +639,10 @@ const deck: Deck = {
           label: "Three of Wands",
           alt: "A rendering of the tarot card Three of Wands depicting a man standing on a cliff, looking out at the sea.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/153px-Wands03.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/306px-Wands03.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/612px-Wands03.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/1224px-Wands03.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/64px-Wands03.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/128px-Wands03.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/256px-Wands03.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wands03.jpg/512px-Wands03.jpg"
           },
           cardId: 24
         }
@@ -662,10 +662,10 @@ const deck: Deck = {
           label: "Four of Wands",
           alt: "A rendering of the tarot card Four of Wands depicting two couples dancing under a garland of flowers.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/153px-Wands04.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/306px-Wands04.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/612px-Wands04.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/1224px-Wands04.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/64px-Wands04.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/128px-Wands04.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/256px-Wands04.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wands04.jpg/512px-Wands04.jpg"
           },
           cardId: 25
         }
@@ -685,10 +685,10 @@ const deck: Deck = {
           label: "Five of Wands",
           alt: "A rendering of the tarot card Five of Wands depicting five young men fighting with wands.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/154px-Wands05.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/308px-Wands05.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/616px-Wands05.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/1232px-Wands05.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/64px-Wands05.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/128px-Wands05.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/256px-Wands05.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wands05.jpg/512px-Wands05.jpg"
           },
           cardId: 26
         }
@@ -708,10 +708,10 @@ const deck: Deck = {
           label: "Six of Wands",
           alt: "A rendering of the tarot card Six of Wands depicting a man on horseback, holding a laurel wreath in the air.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/156px-Wands06.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/312px-Wands06.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/624px-Wands06.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/1248px-Wands06.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/64px-Wands06.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/128px-Wands06.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/256px-Wands06.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wands06.jpg/512px-Wands06.jpg"
           },
           cardId: 27
         }
@@ -731,10 +731,10 @@ const deck: Deck = {
           label: "Seven of Wands",
           alt: "A rendering of the tarot card Seven of Wands depicting a man standing on a cliff, defending himself from six other men with wands.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/153px-Wands07.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/306px-Wands07.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/612px-Wands07.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/1224px-Wands07.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/64px-Wands07.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/128px-Wands07.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/256px-Wands07.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wands07.jpg/512px-Wands07.jpg"
           },
           cardId: 28
         }
@@ -754,10 +754,10 @@ const deck: Deck = {
           label: "Eight of Wands",
           alt: "A rendering of the tarot card Eight of Wands depicting eight wands flying through the air.",
           url: {
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/153px-Wands08.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/306px-Wands08.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/612px-Wands08.jpg",
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/1224px-Wands08.jpg"
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/64px-Wands08.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/128px-Wands08.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/256px-Wands08.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wands08.jpg/512px-Wands08.jpg"
           },
           cardId: 29
         }
@@ -1880,8 +1880,8 @@ function getCardByID(id: number): Card {
 }
 
 function shuffleDeck(deck: Deck): Deck {
-  const leftSide: Card[] = deck.cards.slice(0,Math.ceil(deck.cards.length / 2));
-  const rightSide: Card[] = deck.cards.slice(Math.ceil(deck.cards.length / 2), deck.cards.length);
+  const leftSide: Card[] = deck.cards.slice(0, 35);
+  const rightSide: Card[] = deck.cards.slice(35, deck.cards.length);
 
   // rightSide has all cards "orientation" set to opposite of current value
   rightSide.forEach((card:Card) => {
@@ -1894,17 +1894,19 @@ function shuffleDeck(deck: Deck): Deck {
   };
 
   for (let i = 0; i < 78; i++) {
-    const variance: number = Math.floor(Math.random() * 10) + 1;
-    if(leftSide.length > 1) {
-      newDeck.cards.push(leftSide.pop()!);
-    }
-    if(rightSide.length > 1) {
-      newDeck.cards.push(rightSide.pop()!);
-    }
-    if(variance % 2 === 0 && leftSide.length > 1) {
-      newDeck.cards.push(leftSide.pop()!);
-    } else if(rightSide.length > 1) {
-      newDeck.cards.push(rightSide.pop()!);
+    const randomNum: number = Math.floor(Math.random() * 2);
+    if(randomNum === 0) {
+      if(leftSide.length === 0) {
+        newDeck.cards.push(rightSide.pop()!);
+      } else {
+        newDeck.cards.push(leftSide.pop()!);
+      }
+    } else {
+      if(rightSide.length === 0) {
+        newDeck.cards.push(leftSide.pop()!);
+      } else {
+        newDeck.cards.push(rightSide.pop()!);
+      }
     }
   }
 
@@ -1947,4 +1949,22 @@ function newDeckDrawThree(): Card[] {
   return drawThree(deck);
 }
 
-export { newDeck, newDeckDrawThree, getCardByID, Card, Deck, CardImage }
+function getCardList(): Card[] {
+  return deck.cards;
+}
+
+function getCardImagesBySize(size: string): string[] {
+  const deck: Deck = newShuffledDeck();
+  const images: string[] = deck.cards.map((card: Card) => {
+    if(size === "large") {return card.cardImages[0].url.large;}
+    else if(size === "mid") {return card.cardImages[0].url.mid;}
+    else if(size === "small") {return card.cardImages[0].url.small;}
+    else if(size === "tiny") {return card.cardImages[0].url.tiny;}
+    else {
+      return ""
+    }
+  });
+  return images;
+}
+
+export { newDeck, newDeckDrawThree, getCardByID, getCardImagesBySize, Card, Deck, CardImage }

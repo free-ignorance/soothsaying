@@ -4,7 +4,7 @@ import helmet from "helmet"; // Security updates
 import { logger } from "./utils/logger";
 
 import { DefaultController } from "./controllers";
-import { corsMiddleware } from "./middleware";
+import { cors } from "./middleware";
 import { HealthCheckController } from "./controllers/health";
 import { CardController } from "./controllers/cards";
 
@@ -34,7 +34,7 @@ class App {
         logger.info(`Initializing Middlewares...`);
         this.app.use(helmet()); // adds xss and other security out of box
         this.app.use(express.json());
-        this.app.use(corsMiddleware);
+        this.app.use(cors.corsMiddleware);
     }
 
     private initializeControllers(controllers: DefaultController[]) {

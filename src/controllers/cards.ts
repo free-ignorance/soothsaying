@@ -65,21 +65,36 @@ class CardController extends DefaultController {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `**Past:** ${cards[0].cardImages[0].url.tiny} ${cards[0].name},`
+            text: `Your Past card is ${cards[0].name}, \n ${cards[0].description}`
+          },
+          accessory: {
+            type: "image",
+            image_url: `${cards[0].cardImages[0].url.tiny}`,
+            alt_text: `${cards[0].cardImages[0].alt}`
           }
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `**Present:** ${cards[1].cardImages[0].url.tiny} ${cards[1].name},`
+            text: `Your Present card is ${cards[1].name}, \n ${cards[1].description}`
+          },
+          accessory: {
+            type: "image",
+            image_url: `${cards[1].cardImages[0].url.tiny}`,
+            alt_text: `${cards[1].cardImages[0].alt}`
           }
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `**Future:** ${cards[2].cardImages[0].url.tiny} ${cards[2].name},`
+            text: `Your Future card is ${cards[2].name}, \n ${cards[2].description}`
+          },
+          accessory: {
+            type: "image",
+            image_url: `${cards[2].cardImages[0].url.tiny}`,
+            alt_text: `${cards[2].cardImages[0].alt}`
           }
         }
       ]

@@ -30,6 +30,13 @@ class DefaultController {
             }
         };
     }
+
+    public getSlackResponse() {
+        return {
+            response_type: "in_channel",
+            text: "",
+          };
+    }
 }
 
   export { DefaultController }

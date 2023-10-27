@@ -2,7 +2,7 @@ import * as express from "express";
 
 import { DefaultController } from ".";
 import { logger } from "../utils/logger";
-import { getCardByID, newDeckDrawThree, getCardImagesBySize } from "../models/cards";
+import { getCardByID, newDeckDrawThree, getSmallCardCollection } from "../models/cards";
 
 class CardController extends DefaultController {
   constructor() {
@@ -10,9 +10,9 @@ class CardController extends DefaultController {
   }
 
   public initializeRoutes() {
+    this.router.get(`${this.path}`, this.drawThreeCards);
     this.router.get(`${this.path}/list`, this.getCardListBySize);
     this.router.get(`${this.path}/:id`, this.getCardByID);
-    this.router.get(`${this.path}`, this.drawThreeCards);
     this.router.post(`${this.path}/slack`, this.drawThreeCardsSlack);
   
   }
@@ -59,7 +59,6 @@ class CardController extends DefaultController {
     request: express.Request,
     response: express.Response
   ) => {
-    const cardResponse = this.getSlackResponse();
     const cards = newDeckDrawThree();
     const slackResponse = {
         blocks: [
@@ -151,9 +150,9 @@ class CardController extends DefaultController {
   ) => {
     const cardResponse = this.getDefaultResponse();
     const size = `${request.query.size}`;
-    const cards = getCardImagesBySize(size);
+    const cards = getSmallCardCollection(size);
     cardResponse.data = {
-      ...cards,
+      cards: cards,
     };
     logger.info(`CardController.getCardListBySize: ${cards.length} of size ${size} cards`);
     response.status(200).send(cardResponse);

@@ -10,9 +10,9 @@ class CardController extends DefaultController {
   }
 
   public initializeRoutes() {
+    this.router.get(`${this.path}`, this.drawThreeCards);
     this.router.get(`${this.path}/list`, this.getCardListBySize);
     this.router.get(`${this.path}/:id`, this.getCardByID);
-    this.router.get(`${this.path}`, this.drawThreeCards);
     this.router.post(`${this.path}/slack`, this.drawThreeCardsSlack);
   
   }
@@ -59,7 +59,6 @@ class CardController extends DefaultController {
     request: express.Request,
     response: express.Response
   ) => {
-    const cardResponse = this.getSlackResponse();
     const cards = newDeckDrawThree();
     const slackResponse = {
         blocks: [

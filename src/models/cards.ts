@@ -65,15 +65,13 @@ interface Deck {
   cards: Card[];
 }
 
-/**
- * Tarot Spread
- */
-interface Spread {
-  id: string;
+interface SmallCard { 
+  id: number;
   name: string;
-  description: string;
-  cards: Card[];
+ image: string;
+ alt: string;
 }
+
 
 
 const deck: Deck = {
@@ -1953,8 +1951,27 @@ function getCardList(): Card[] {
   return deck.cards;
 }
 
+function getSmallCardCollection(size: string): SmallCard[] {
+  const deck: Deck = newDeck();
+  const newCardCollection: SmallCard[] = deck.cards.map((card: Card) => {
+    const newCard: SmallCard = {
+      id: card.id,
+      name: card.name,
+      alt: card.cardImages[0].alt,
+      image: "",
+    };
+    
+    if(size === "large") {newCard.image = card.cardImages[0].url.large;}
+    else if(size === "mid") {newCard.image = card.cardImages[0].url.mid;}
+    else if(size === "small") {newCard.image = card.cardImages[0].url.small;}
+    else if(size === "tiny") {newCard.image = card.cardImages[0].url.tiny;}
+    return newCard;
+  });
+  return newCardCollection;
+}
+
 function getCardImagesBySize(size: string): string[] {
-  const deck: Deck = newShuffledDeck();
+  const deck: Deck = newDeck();
   const images: string[] = deck.cards.map((card: Card) => {
     if(size === "large") {return card.cardImages[0].url.large;}
     else if(size === "mid") {return card.cardImages[0].url.mid;}
@@ -1967,4 +1984,4 @@ function getCardImagesBySize(size: string): string[] {
   return images;
 }
 
-export { newDeck, newDeckDrawThree, getCardByID, getCardImagesBySize, Card, Deck, CardImage }
+export { newDeck, newDeckDrawThree, getCardByID, getCardImagesBySize, getSmallCardCollection, Card, Deck, CardImage }

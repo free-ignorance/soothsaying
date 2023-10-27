@@ -2,7 +2,7 @@ import * as express from "express";
 
 import { DefaultController } from ".";
 import { logger } from "../utils/logger";
-import { getCardByID, newDeckDrawThree, getCardImagesBySize } from "../models/cards";
+import { getCardByID, newDeckDrawThree, getSmallCardCollection } from "../models/cards";
 
 class CardController extends DefaultController {
   constructor() {
@@ -151,9 +151,9 @@ class CardController extends DefaultController {
   ) => {
     const cardResponse = this.getDefaultResponse();
     const size = `${request.query.size}`;
-    const cards = getCardImagesBySize(size);
+    const cards = getSmallCardCollection(size);
     cardResponse.data = {
-      ...cards,
+      cards: cards,
     };
     logger.info(`CardController.getCardListBySize: ${cards.length} of size ${size} cards`);
     response.status(200).send(cardResponse);

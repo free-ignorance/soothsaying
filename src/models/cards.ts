@@ -171,10 +171,10 @@ const deck: Deck = {
           label: "The Empress",
           alt: "A rendering of the tarot card The Empress depicting a mother",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/512px-RWS_Tarot_03_Empress.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/256px-RWS_Tarot_03_Empress.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/128px-RWS_Tarot_03_Empress.jpg",
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RWS_Tarot_03_Empress.jpg/64px-RWS_Tarot_03_Empress.jpg"
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/RWS_Tarot_03_Empress.jpg/512px-RWS_Tarot_03_Empress.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/RWS_Tarot_03_Empress.jpg/256px-RWS_Tarot_03_Empress.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/RWS_Tarot_03_Empress.jpg/128px-RWS_Tarot_03_Empress.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/RWS_Tarot_03_Empress.jpg/64px-RWS_Tarot_03_Empress.jpg"
           },
           cardId: 3
         }

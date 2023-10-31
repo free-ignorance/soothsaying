@@ -1,5 +1,9 @@
 # soothsaying
 
+[![codecov](https://codecov.io/gh/free-ignorance/shrewd/branch/main/graph/badge.svg)](https://codecov.io/gh/free-ignorance/soothsaying)
+
+------
+
 This API is used to create deck of Tarot cards, shuffle, and deal 3 cards for a Tarot reading.
 
 ## Getting Started / Development Setup

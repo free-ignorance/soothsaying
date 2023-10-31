@@ -1,7 +1,7 @@
 {
   "name": "soothsaying",
-  "version": "0.1.0",
-  "description": "x",
+  "version": "0.1.1",
+  "description": "This API is used to create deck of Tarot cards, shuffle, and deal 3 cards for a Tarot reading.",
   "private": false,
   "engines": {
       "node": "16.x"

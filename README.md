@@ -211,11 +211,62 @@ Also has a slack friendly endpoint!
 curl https://soothsaying-c436343ba6ff.herokuapp.com/cards/slack
 ```
 
-Response
+Example Response 
 
 ```json
-
+{
+  "blocks": [
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Very interesting, let's see what the cards have to say... :crystal_ball:"
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Your Past card is *King of Wands* \n The King of Wands is a card of authority, leadership, and vision. It represents the masculine aspect of the Wands suit and the power of fire. The King of Wands also reminds you to be strong and to stand up for what you believe in."
+      },
+      "accessory": {
+        "type": "image",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Wands14.jpg/128px-Wands14.jpg",
+        "alt_text": "A rendering of the tarot card King of Wands depicting a man sitting on a throne, holding a wand in one hand and a lion-headed scepter in the other."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Your Past card is *Ace of Cups* \n The Ace of Cups is a card of new beginnings, love, and compassion. It represents the overflowing cup of emotions and the potential for deep connection with others. The Ace of Cups also reminds you to open your heart to love and to let yourself be loved."
+      },
+      "accessory": {
+        "type": "image",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cups01.jpg/128px-Cups01.jpg",
+        "alt_text": "A rendering of the tarot card Ace of Cups depicting a white dove holding a golden cup in its beak."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Your Past card is *Two of Cups* \n The Two of Cups is a card of harmony, balance, and partnership. It represents the union of two people in love, or the coming together of two opposing forces. The Two of Cups also reminds you to cherish your relationships and to nurture the connections that you have with others."
+      },
+      "accessory": {
+        "type": "image",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Cups02.jpg/128px-Cups02.jpg",
+        "alt_text": "A rendering of the tarot card Two of Cups depicting a man and a woman sitting face-to-face, holding cups in their hands."
+      }
+    }
+  ]
+}
 ```
+
+
 </details>
 
 

@@ -31,7 +31,7 @@ class CardController extends DefaultController {
     const id = parseInt(request.params.id);
     const card = getCardByID(id-1);
     cardResponse.data = {
-      ...card,
+      card,
     };
     logger.info(`CardController.getCardByID: ${card.name}`);
     response.status(200).send(cardResponse);
@@ -48,9 +48,7 @@ class CardController extends DefaultController {
   ) => {
     const cardResponse = this.getDefaultResponse();
     const cards = newDeckDrawThree();
-    cardResponse.data = {
-      ...cards,
-    };
+    cardResponse.data = cards;
     logger.info(`CardController.drawThreeCards: ${cards[0].name}, ${cards[1].name}, ${cards[2].name}`);
     response.status(200).send(cardResponse);
   }

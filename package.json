@@ -1,6 +1,6 @@
 {
   "name": "soothsaying",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This API is used to create deck of Tarot cards, shuffle, and deal 3 cards for a Tarot reading.",
   "private": false,
   "engines": {
@@ -21,6 +21,7 @@
       "build": "tsc",
       "serve": "node dist/app.js",
       "test": "jest",
+      "test:coverage": "jest --coverage | ./node_modules/.bin/codecov",
       "test:lint": "eslint . 'src/**/*.ts'",
       "test:lint:fix": "eslint . --fix 'src/**/*.ts'"
   },

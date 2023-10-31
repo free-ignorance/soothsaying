@@ -306,13 +306,17 @@ All support and related questions can be resolved by visiting the https://sage.a
 
 ### Slack
 
-Our api is used by our organization's slack bot. [SageBot](https://sage.af/about/bot) which is used to provide tarot readings to your slack channels. 
-
-![Image of Example response of the bot in slack](https://github.com/free-ignorance/soothsaying/assets/127320/439132a1-376f-4cbf-929d-8b2a672d931f)
-
 <div align="center">
-<p>You can always add the bot to your slack workspace by clicking the button below.</p>
-<p><a href="https://slack.com/oauth/v2/authorize?client_id=780455873664.6087369520707&scope=commands&user_scope="><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a></p>
+  <p>Our api is used by our organization's slack bot. <a href="https://sage.af/about/bot">Sage Bot</a> which is used to provide tarot readings to your slack channels. </p>
+  <p>
+    <img src="https://github.com/free-ignorance/soothsaying/assets/127320/439132a1-376f-4cbf-929d-8b2a672d931f" alt="Image of Example response of the bot in slack" />
+  </p>
+  <p>You can always add the bot to your slack workspace by clicking the button below.</p>
+  <p>
+    <a href="https://slack.com/oauth/v2/authorize?client_id=780455873664.6087369520707&scope=commands&user_scope=">
+      <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+    </a>
+  </p>
 </div>
 
 

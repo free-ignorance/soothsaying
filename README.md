@@ -123,8 +123,8 @@ Response
 ```json
 {
 {
-  "data": {
-    "0": {
+  "data": [
+    {
       "id": 76,
       "name": "Queen of Pentacles",
       "description": "The Queen of Pentacles is a card of abundance, prosperity, and nurturing. She represents the importance of taking care of yourself and your loved ones. The Queen of Pentacles also reminds you to be generous and to share your abundance with others.",
@@ -147,7 +147,7 @@ Response
         }
       ]
     },
-    "1": {
+    {
       "id": 53,
       "name": "Four of Swords",
       "description": "The Four of Swords is a card of rest, contemplation, and healing. It represents the need to take a break and to recharge your batteries. The Four of Swords also reminds you to reflect on your life and to make sure that you are on the right path.",
@@ -170,7 +170,7 @@ Response
         }
       ]
     },
-    "2": {
+    {
       "id": 72,
       "name": "Nine of Pentacles",
       "description": "The Nine of Pentacles is a card of abundance, prosperity, and fulfillment. It represents the feeling of being content and satisfied with your life. The Nine of Pentacles also reminds you to enjoy your success and to be grateful for all that you have.",
@@ -211,11 +211,62 @@ Also has a slack friendly endpoint!
 curl https://soothsaying-c436343ba6ff.herokuapp.com/cards/slack
 ```
 
-Response
+Example Response 
 
 ```json
-
+{
+  "blocks": [
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Very interesting, let's see what the cards have to say... :crystal_ball:"
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Your Past card is *King of Wands* \n The King of Wands is a card of authority, leadership, and vision. It represents the masculine aspect of the Wands suit and the power of fire. The King of Wands also reminds you to be strong and to stand up for what you believe in."
+      },
+      "accessory": {
+        "type": "image",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Wands14.jpg/128px-Wands14.jpg",
+        "alt_text": "A rendering of the tarot card King of Wands depicting a man sitting on a throne, holding a wand in one hand and a lion-headed scepter in the other."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Your Past card is *Ace of Cups* \n The Ace of Cups is a card of new beginnings, love, and compassion. It represents the overflowing cup of emotions and the potential for deep connection with others. The Ace of Cups also reminds you to open your heart to love and to let yourself be loved."
+      },
+      "accessory": {
+        "type": "image",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cups01.jpg/128px-Cups01.jpg",
+        "alt_text": "A rendering of the tarot card Ace of Cups depicting a white dove holding a golden cup in its beak."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Your Past card is *Two of Cups* \n The Two of Cups is a card of harmony, balance, and partnership. It represents the union of two people in love, or the coming together of two opposing forces. The Two of Cups also reminds you to cherish your relationships and to nurture the connections that you have with others."
+      },
+      "accessory": {
+        "type": "image",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Cups02.jpg/128px-Cups02.jpg",
+        "alt_text": "A rendering of the tarot card Two of Cups depicting a man and a woman sitting face-to-face, holding cups in their hands."
+      }
+    }
+  ]
+}
 ```
+
+
 </details>
 
 
@@ -257,7 +308,13 @@ All support and related questions can be resolved by visiting the https://sage.a
 
 Our api is used by our organization's slack bot. [SageBot](https://sage.af/about/bot) which is used to provide tarot readings to your slack channels. 
 
-<a href="https://slack.com/oauth/v2/authorize?client_id=780455873664.6087369520707&scope=commands&user_scope="><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+![Image of Example response of the bot in slack](https://github.com/free-ignorance/soothsaying/assets/127320/439132a1-376f-4cbf-929d-8b2a672d931f)
+
+<div align="center">
+<p>You can always add the bot to your slack workspace by clicking the button below.</p>
+<p><a href="https://slack.com/oauth/v2/authorize?client_id=780455873664.6087369520707&scope=commands&user_scope="><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a></p>
+</div>
+
 
 ### Discord
 

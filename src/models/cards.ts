@@ -237,10 +237,10 @@ const deck: Deck = {
           label: "The Lovers",
           alt: "A rendering of the tarot card The Lovers depicting a couple",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/512px-RWS_Tarot_06_Lovers.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/256px-RWS_Tarot_06_Lovers.jpg",
-            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/128px-RWS_Tarot_06_Lovers.jpg",
-            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/64px-RWS_Tarot_06_Lovers.jpg"
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/TheLovers.jpg/512px-TheLovers.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/TheLovers.jpg/256px-TheLovers.jpg",
+            small: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/TheLovers.jpg/128px-TheLovers.jpg",
+            tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/TheLovers.jpg/64px-TheLovers.jpg"
           },
           cardId: 6
         }

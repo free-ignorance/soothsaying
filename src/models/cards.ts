@@ -149,8 +149,8 @@ const deck: Deck = {
           label: "The High Priestess",
           alt: "A rendering of the tarot card The High Priestess depicting a priestess",
           url: {
-            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/512px-RWS_Tarot_02_High_Priestess.jpg",
-            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_02_High_Priestess.jpg/256px-RWS_Tarot_02_High_Priestess.jpg",
+            large: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/512px-RWS_Tarot_02_High_Priestess.jpg",
+            mid: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/256px-RWS_Tarot_02_High_Priestess.jpg",
             small: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/128px-RWS_Tarot_02_High_Priestess.jpg",
             tiny: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/64px-RWS_Tarot_02_High_Priestess.jpg"
           },
